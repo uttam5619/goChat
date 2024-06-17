@@ -1,0 +1,1 @@
+export const defaultProfileLogo ='https://th.bing.com/th/id/OIP.D6OIJNfXEoTDPfmE2swyJgHaHa?w=600&h=600&rs=1&pid=ImgDetMain'
