@@ -1,13 +1,13 @@
 import mongoose from "mongoose"
 
-const connectDB =()=>{
-    mongoose.connect(`mongodb://localhost:27017`)
-    .then((e)=>{
-        console.log(`connection established with mongoDB ${e.connection.host}`)
-    }).catch((err)=>{
+const connectDB =async ()=>{
+    const isDatabaseConnected = await mongoose.connect(`mongodb://localhost:27017`)
+    if(isDatabaseConnected){
+        console.log(`database connection established with mongoDB ${isDatabaseConnected.connection.host}`)
+    }else(
         console.log(`failed to connect with mongoDB`)
-        process.exit(1)
-    })
+    )
+    return isDatabaseConnected
 }
 
 export default connectDB

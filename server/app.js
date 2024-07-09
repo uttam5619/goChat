@@ -9,8 +9,18 @@ const app = express();
 app.use(express.json())
 //to parse cokkies comming with incomming request object
 app.use(cookieParser())
-app.use(bodyParser())
+// to parse incomming request
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/gochat',appRouter)
+
+/*
+error middleware
+app.use('*',(err, req, res) => {
+
+})
+
+*/
 
 export default app
