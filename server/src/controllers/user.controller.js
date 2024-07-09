@@ -12,7 +12,7 @@ const updateUser=async (req,res) =>{
                 message: `request body does not contain the id`
             })
         }
-        const user  = await userService.updateTheUser(req.body)
+        const user  = await userService.updateTheUser(req)
         return res.status(200).json({
             success: true,
             message: `user updated successfully`,
@@ -51,14 +51,14 @@ const getUser =async (req, res) =>{
 
 const deleteUser = async (req, res) =>{
     try{
-        const { id } = req.body
+        const { id } = req.params
         if(!id){
             return res.status(400).json({
                 success: false,
                 message: `request body does not contain the id`
             })
         }
-        await this.userService.deleteTheUser(id)
+        await userService.deleteTheUser(id)
         return res.status(200).json({
             success: true,
             message: `user deleted successfully`

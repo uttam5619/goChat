@@ -56,13 +56,12 @@ userSchema.pre('save',async function(next){
 })
 
 userSchema.methods = {
-    generateAccessToken: async function(){
-        const token = await jwt.sign(
+        generateAccessToken: async function(){
+        return await jwt.sign(
             {id:this._id, email:this.email, name: this.name, username: this.username},
             process.env.ACCESS_TOKEN_SECRET,
             {expiresIn: '3h'}
         )
-        return token
     },
     comparePassword: async function(password){
         return await bcrypt.compare(password, this.password)

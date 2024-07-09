@@ -2,7 +2,8 @@ import User from "../models/user.model.js"
 
 const isLoggedIn = async (req, res, next) =>{
     try{
-        const { token } = req.cookie
+        const { token } = req.cookies
+        console.log(token)
         if(!token){
             //logOut
             return res.status(400).json({

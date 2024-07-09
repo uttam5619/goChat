@@ -101,7 +101,11 @@ const signIn =async (req,res)=>{
 }
 
 const signOut = ()=>{
-
+    res.cookie('token', null, cookieOptions)
+    return res.status(200).json({
+        success: true,
+        message: 'signOut successfully'
+    })
 }
 
 const forgotPassword = ()=>{

@@ -1,6 +1,6 @@
 import express from 'express'
 import { signIn, signOut, signUp } from '../../controllers/auth.controller.js'
-import isLoggedIn from '../../middlewares/isloggedIn.js'
+import isLoggedIn from '../../middlewares/isloggedIn.middleware.js'
 
 const Authv1Route = express.Router()
 
