@@ -4,7 +4,7 @@ class UserRepository {
 
     async updateTheUser(req){
         try{
-            const { id } = req.body
+            const { id } = req.params
             const user = await User.findById(id)
             if(!user){
                 return res.status(404).json({

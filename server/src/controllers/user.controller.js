@@ -5,6 +5,7 @@ const userService = new UserService(new UserRepository())
 
 const updateUser=async (req,res) =>{
     try{
+        const { id } = req.params
         if(!id){
             return res.status(400).json({
                 success: false,

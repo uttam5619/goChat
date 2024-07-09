@@ -10,7 +10,7 @@ const userSchema = new Schema({
         trim: true,
         index: true,
         minLength: [3, `the name shold contain atleast 3 characters`],
-        maxLength: [3, `the name shold contain atmost 60 characters`],
+        maxLength: [60, `the name shold contain atmost 60 characters`],
     },
     username: {
         type: String,
@@ -20,7 +20,7 @@ const userSchema = new Schema({
         trim: true,
         unique: true,
         minLength: [3, `the name shold contain atleast 3 characters`],
-        maxLength: [3, `the name shold contain atmost 60 characters`],
+        maxLength: [60, `the name shold contain atmost 60 characters`],
     },
     email:{
         type: String,

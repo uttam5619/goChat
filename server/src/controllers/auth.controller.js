@@ -9,8 +9,8 @@ const cookieOptions ={
 
 const signUp =async (req,res)=>{
     try{
-        const { name, email, username, password, confirmPassword, gender }= req.body
-        if(!name|| !username|| !email|| !password|| !confirmPassword || !gender){
+        const { name, email, username, password, gender }= req.body
+        if(!name|| !username|| !email|| !password|| !gender){
             return res.status(400).json(
                 {
                     sucess:false,
@@ -18,15 +18,6 @@ const signUp =async (req,res)=>{
                 }
             );
         }
-        if(password !== confirmPassword){
-            return res.status(400).json(
-                {
-                    sucess:false,
-                    message:'password and confirm password not matched'
-                }
-            );
-        }
-
         const isUserAlreadyRegistered = await User.findOne({email})
         if(isUserAlreadyRegistered){
             return res.status(400).json({
@@ -40,7 +31,6 @@ const signUp =async (req,res)=>{
             email,
             gender,
             password,
-            confirmPassword,
             profilePicture:{
                 public_id: email,
                 secure_url: defaultProfileLogo
@@ -118,9 +108,14 @@ const forgotPassword = ()=>{
 
 }
 
+const resetPassword =()=>{
+
+}
+
 export {
     signIn,
     signUp,
     signOut,
-    forgotPassword
+    forgotPassword,
+    resetPassword
 }

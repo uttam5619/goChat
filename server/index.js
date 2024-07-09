@@ -1,17 +1,15 @@
 import { config } from "dotenv";
-import app from './app.js'
+import cors from 'cors'
 import connectDB from "./src/config/db.config.js";
-import ServerConfig from "./src/config/server.config.js";
+import app from "./app.js";
+
 
 config()
+app.use(cors())
 
-const StartServer = async()=>{
-    const database = await connectDB()
-    if(database){
-        ServerConfig()
-    }else{
-        process.exit(1)
-    }
-}
+const Port = process.env.PORT || 5400
 
-StartServer()
+connectDB()
+app.listen(Port, ()=>{
+    console.log(`server listining up on port ${Port}`)
+})

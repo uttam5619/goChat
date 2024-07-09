@@ -7,7 +7,6 @@ const connectDB =async ()=>{
     }else(
         console.log(`failed to connect with mongoDB`)
     )
-    return isDatabaseConnected
 }
 
 export default connectDB
