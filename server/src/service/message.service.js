@@ -6,10 +6,10 @@ class MessageService{
         this,conversation = conversation
     }
 
-    async sendMessages(reciverId, senderId){
+    async sendMessages(reciverId, senderId, message){
         try{
-            const message = await this.conversation.sendMessages(reciverId, senderId)
-            return message
+            const messageToBeSent = await this.conversation.sendMessages(reciverId, senderId, message)
+            return messageToBeSent
         }catch(err){
             console.log(err.message)
             throw err
