@@ -1,15 +1,15 @@
 import { Schema, model} from 'mongoose'
-import User from './user.model'
+import User from './user.model.js'
 
 const MessageSchema = new Schema({
     senderId: {
         type: Schema.Types.ObjectId,
-        ref: User,
+        ref: 'User',
         required: true
     },
     reciverId: {
         type: Schema.Types.ObjectId,
-        ref: User,
+        ref: 'User',
         required: true
     },
     message: {
